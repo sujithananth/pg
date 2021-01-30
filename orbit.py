@@ -20,6 +20,12 @@ orbityradius=200
 
 
 pygame.init()
+def orbits(x,y):
+    pygame.draw.ellipse(screen,white,[x,y,700,400],1)
+def planets(degree,color,):
+    x=int(math.cos(degree*math.pi/180)*orbitxradius)+centerx
+    y=int(math.sin(degree*math.pi/180)*orbityradius)+centery
+    pygame.draw.circle(screen,color,[x,y],ballradius)
 
 
 screen=pygame.display.set_mode([screen_width,screen_height])
@@ -32,10 +38,7 @@ while True:
     for degree in range(0,360):
          screen.fill(black)
          pygame.draw.circle(screen,red,[centerx,centery],sunradius)
-         pygame.draw.ellipse(screen,white,[50,100,700,400],1)
-         x=int(math.cos(degree*math.pi/180)*orbitxradius)+centerx
-         y=int(math.sin(degree*math.pi/180)*orbityradius)+centery
-         pygame.draw.circle(screen,blue,[x,y],ballradius)
-                            
+         planets(degree,blue)
+         orbits(50,100)
          pygame.display.update()
          clock.tick(60)

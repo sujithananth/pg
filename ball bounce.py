@@ -23,9 +23,9 @@ def animate_ball():
 
 
 def check_boundary():
-    if ballx<screen_width or ballx<0:
+    if ballx+ballradius >screen_width or ballx+ballradius<0:
         speed[0]*=-1
-    if bally<screen_height or bally<0:
+    if bally+ballradius > screen_height or bally+ballradius<0:
         speed[1]*=-1
 
 screen=pygame.display.set_mode([screen_width,screen_height])
